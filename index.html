@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AX-Hundrastning i Lund – trygg hundrastning och promenader. Bokning via telefon, SMS eller e-post." />
+  <title>AX-Hundrastning | Hundrastning i Lund</title>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.68);
+      --border:rgba(255,255,255,0.14);
+      --accent:#f2b13e;
+      --ok:#3bd671;
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
+      --radius:18px;
+      --radius2:26px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:
+        radial-gradient(1200px 700px at 12% 0%, rgba(242,177,62,0.18), transparent 55%),
+        radial-gradient(1000px 700px at 92% 10%, rgba(255,207,106,0.12), transparent 55%),
+        linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(11,15,20,0.72);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;min-width:180px}
+    .logo{
+      width:42px;height:42px;border-radius:12px;
+      background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.25), transparent 55%),
+                 linear-gradient(135deg, var(--accent), #d68c10);
+      box-shadow:0 10px 30px rgba(242,177,62,0.22);
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,0.18);
+    }
+    .logo svg{width:22px;height:22px;opacity:.92}
+    .brand h1{font-size:15px;margin:0;letter-spacing:.3px;line-height:1.1}
+    .brand p{margin:0;color:var(--muted);font-size:12px;line-height:1.2}
+    nav ul{list-style:none;padding:0;margin:0;display:flex;gap:18px;align-items:center}
+    nav a{font-size:14px;color:var(--muted);padding:10px 10px;border-radius:12px;transition:150ms ease}
+    nav a:hover{color:var(--text);background:rgba(255,255,255,0.06)}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:11px 14px;border-radius:14px;font-weight:650;letter-spacing:.2px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.06);
+      color:var(--text);
+      cursor:pointer;
+      transition:transform 120ms ease, background 120ms ease, border 120ms ease;
+      user-select:none;white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.085);border-color:rgba(255,255,255,0.20)}
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #d89012);
+      border-color:rgba(255,255,255,0.14);
+      color:#151515;
+      box-shadow:0 16px 40px rgba(242,177,62,0.18);
+    }
+    .btn-primary:hover{background:linear-gradient(135deg, #ffbf55, #e39a16)}
+    .btn-icon{width:42px;height:42px;padding:0}
+    .burger{display:none}
+
+    /* Hero */
+    .hero{padding:46px 0 18px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+    .hero-card{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      box-shadow:var(--shadow);
+      border-radius:var(--radius2);
+      overflow:hidden;
+    }
+    .hero-media{position:relative;height:340px;background:#0d1219}
+    .hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(90deg, rgba(11,15,20,0.78) 0%, rgba(11,15,20,0.35) 55%, rgba(11,15,20,0.12) 100%);
+    }
+    .hero-body{padding:22px 24px 24px}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.06);
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:12px;
+    }
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(59,214,113,0.12)}
+    .hero-body h2{margin:0 0 10px;font-size:clamp(28px,3.5vw,44px);line-height:1.05;letter-spacing:-.8px}
+    .hero-body p{margin:0 0 18px;color:var(--muted);font-size:16px;max-width:58ch}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    .hero-side{
+      border-radius:var(--radius2);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.035));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      padding:18px;
+      display:grid;
+      gap:12px;
+    }
+    .mini{
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.05);
+      border-radius:16px;
+      padding:12px;
+    }
+    .mini h3{margin:0 0 6px;font-size:14px}
+    .mini p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Sections */
+    section{padding:34px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:14px}
+    .section-head h2{margin:0;font-size:22px;letter-spacing:-.2px}
+    .section-head p{margin:0;color:var(--muted);max-width:70ch;font-size:14px}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .card{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.05);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.20);
+    }
+    .card h3{margin:0 0 8px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+    .shot{
+      border-radius:var(--radius2);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.03);
+      box-shadow:0 10px 30px rgba(0,0,0,0.28);
+      position:relative;
+      aspect-ratio: 4 / 5;
+    }
+    .shot img{width:100%;height:100%;object-fit:cover;transform:scale(1.01)}
+    .shot .cap{
+      position:absolute;left:10px;right:10px;bottom:10px;
+      background:rgba(11,15,20,0.72);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:14px;
+      padding:10px 10px;
+      color:rgba(255,255,255,0.88);
+      font-size:13px;
+      backdrop-filter:blur(8px);
+    }
+
+    /* Pricing */
+    .pricing-wrap{display:grid;grid-template-columns:1fr .9fr;gap:12px;align-items:start}
+    table{
+      width:100%;
+      border-collapse:separate;border-spacing:0;
+      overflow:hidden;border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.045);
+    }
+    thead th{
+      text-align:left;font-size:13px;color:rgba(255,255,255,0.82);
+      padding:12px 12px;
+      background:rgba(242,177,62,0.18);
+      border-bottom:1px solid rgba(255,255,255,0.14);
+    }
+    tbody td{
+      padding:12px 12px;font-size:14px;color:rgba(255,255,255,0.88);
+      border-bottom:1px solid rgba(255,255,255,0.09);
+      vertical-align:top;
+    }
+    tbody tr:last-child td{border-bottom:none}
+    tbody td:last-child{text-align:right;white-space:nowrap}
+    .note{color:var(--muted);font-size:13px;margin-top:10px}
+
+    .calc{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.05);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .calc h3{margin:0 0 8px;font-size:15px}
+    .calc p{margin:0 0 12px;color:var(--muted);font-size:13px}
+    .field{display:grid;gap:6px;margin-bottom:10px}
+    label{font-size:13px;color:rgba(255,255,255,0.85)}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(10,13,18,0.6);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{border-color:rgba(242,177,62,0.5);background:rgba(10,13,18,0.8)}
+    textarea{min-height:120px;resize:vertical}
+    .calc-result{
+      margin-top:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.04);
+      color:rgba(255,255,255,0.9);
+      font-size:14px;
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.045);
+      border-radius:16px;
+      padding:12px 12px;
+    }
+    details summary{cursor:pointer;font-weight:650;list-style:none}
+    details summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0;color:var(--muted);font-size:14px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr .85fr;gap:12px;align-items:start}
+    .contact-card{
+      border-radius:var(--radius2);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .list{display:grid;gap:10px;margin-top:10px}
+    .list .item{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px;border-radius:16px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .item b{display:block;font-size:13px}
+    .item span{display:block;color:var(--muted);font-size:13px}
+
+    footer{
+      padding:26px 0 36px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,0.10);
+      margin-top:24px;
+    }
+
+    /* Mobile */
+    @media (max-width: 940px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .pricing-wrap{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .burger{display:inline-flex}
+      .brand{min-width:unset}
+      .hero-media{height:280px}
+    }
+
+    .mobile-menu{
+      display:none;
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding:10px 0 14px;
+    }
+    .mobile-menu.open{display:block}
+    .mobile-menu a{
+      display:block;
+      padding:10px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04);
+      margin:8px 0;
+    }
+    .mobile-menu a:hover{color:var(--text);border-color:rgba(255,255,255,0.18)}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="Gå till start">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7.5 13.2c1.2 0 2.2-1 2.2-2.2 0-1.2-1-2.2-2.2-2.2-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2Zm9 0c1.2 0 2.2-1 2.2-2.2 0-1.2-1-2.2-2.2-2.2-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2Z" stroke="rgba(0,0,0,0.78)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M8.2 15.6c1.4 1 2.9 1.5 3.8 1.5.9 0 2.4-.5 3.8-1.5" stroke="rgba(0,0,0,0.78)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>AX-Hundrastning</h1>
+          <p>Lund • Trygg rastning när tiden är knapp</p>
+        </div>
+      </a>
+
+      <nav aria-label="Huvudmeny">
+        <ul>
+          <li><a href="#tjanster">Tjänster</a></li>
+          <li><a href="#bilder">Bilder</a></li>
+          <li><a href="#priser">Priser</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <button class="btn btn-icon burger" id="menuBtn" aria-label="Öppna meny" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a class="btn" href="#priser">Prislista</a>
+        <a class="btn btn-primary" href="#kontakt">Boka nu</a>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-label="Mobilmeny">
+      <a href="#tjanster">Tjänster</a>
+      <a href="#bilder">Bilder</a>
+      <a href="#priser">Priser</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="hero-media">
+            <img src="assets/ax_walk_3.jpg" alt="Hundrastning i Lund, kvällspromenad" />
+            <div class="hero-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="hero-body">
+            <div class="hero-badge"><span class="dot"></span> Hundrastning i Lund • Bokning via tel/SMS/mail</div>
+            <h2>Trygg hundrastning i Lund – med tydliga rutiner och omtanke.</h2>
+            <p>
+              För dig som har ont om tid men vill ge din hund det bästa: regelbundna promenader,
+              trygg hantering och enkel kommunikation. Anpassat efter din hunds behov – varje gång.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:0735108270">Ring & boka: 073-510 82 70</a>
+              <a class="btn" href="sms:0735108270">SMS:a</a>
+              <a class="btn" href="mailto:k9daycare@tilia.com?subject=Bokningsförfrågan%20AX-Hundrastning%20(Lund)">Maila</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side" aria-label="Snabbinfo">
+          <div class="mini">
+            <h3>Ingår alltid</h3>
+            <p>Trygg hämtning/lämning, vatten vid behov, och kort status efter promenad.</p>
+          </div>
+          <div class="mini">
+            <h3>Område</h3>
+            <p><b>Lund</b> och närliggande områden (enligt överenskommelse).</p>
+          </div>
+          <div class="mini">
+            <h3>Kontakt</h3>
+            <p><b>Tel/SMS:</b> <a href="tel:0735108270">073-510 82 70</a><br><b>E-post:</b> <a href="mailto:k9daycare@tilia.com">k9daycare@tilia.com</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="tjanster">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Tjänster</h2>
+          <p>Enkla upplägg som ger din hund kontinuitet, rutin och lugn – även när din kalender är full.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Lunchrastning</h3>
+          <p>Perfekt för långa arbetsdagar. Paus, stimulans och trygg återgång hemma.</p>
+        </div>
+        <div class="card">
+          <h3>Dagliga promenader</h3>
+          <p>Återkommande tider som skapar rutin. Anpassas efter tempo, ålder och energinivå.</p>
+        </div>
+        <div class="card">
+          <h3>Kvällspromenader</h3>
+          <p>En lugn avslutning på dagen – för hundar som behöver varva ner.</p>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Hämtning & lämning</h3>
+          <p>Enligt överenskommelse. Du får en kort status efteråt så du alltid har koll.</p>
+        </div>
+        <div class="card">
+          <h3>Skräddarsytt upplägg</h3>
+          <p>Har din hund särskilda behov? Vi sätter upp rutiner och mål som fungerar i vardagen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bilder">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Bilder</h2>
+          <p>Exempel på hur en promenad kan se ut – stad, park och kvällsrunda.</p>
+        </div>
+      </div>
+
+      <div class="gallery" aria-label="Bildgalleri">
+        <figure class="shot">
+          <img src="assets/ax_walk_1.jpg" alt="Hundrastning i stadsmiljö" />
+          <figcaption class="cap">Stadsmiljö • trygg hantering & struktur</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/ax_walk_2.jpg" alt="Hundrastning i parkmiljö" />
+          <figcaption class="cap">Park • lugn stimulans & nosarbete</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/ax_walk_3.jpg" alt="Hundrastning i kvällsljus" />
+          <figcaption class="cap">Kvällsrunda • varva ner & avsluta dagen</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="priser">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Priser</h2>
+          <p>Priserna nedan gäller för månadsabonnemang med angiven tjänst. Enstaka rastningar går också bra.</p>
+        </div>
+      </div>
+
+      <div class="pricing-wrap">
+        <div>
+          <table aria-label="Prislista">
+            <thead>
+              <tr>
+                <th>Tjänst</th>
+                <th style="text-align:right;">Pris (SEK)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Månadsabonnemang, 30 min (1 dag/vecka)</td><td>1 100 kr</td></tr>
+              <tr><td>Månadsabonnemang, 30 min (2 dagar/vecka)</td><td>2 200 kr</td></tr>
+              <tr><td>Månadsabonnemang, 30 min (3 dagar/vecka)</td><td>2 750 kr</td></tr>
+              <tr><td>Enstaka rastning, 30 min</td><td>330 kr</td></tr>
+              <tr><td>Enstaka rastning, 60 min</td><td>440 kr</td></tr>
+            </tbody>
+          </table>
+
+          <p class="note">
+            Har du mer än 1 hund? Då rabatteras priset med <b>50%</b> från och med hund nummer två (samma hushåll och samma promenad).
+            <br>Hittar du inget upplägg som passar? SMS:a eller maila så löser vi det.
+          </p>
+        </div>
+
+        <aside class="calc" aria-label="Prisräknare">
+          <h3>Snabb prisräknare</h3>
+          <p>Hund #2 och uppåt: 50% (samma promenad).</p>
+
+          <div class="field">
+            <label for="service">Välj tjänst</label>
+            <select id="service">
+              <option value="1100">Månadsabonnemang 30 min (1 dag/vecka) – 1 100 kr</option>
+              <option value="2200">Månadsabonnemang 30 min (2 dagar/vecka) – 2 200 kr</option>
+              <option value="2750">Månadsabonnemang 30 min (3 dagar/vecka) – 2 750 kr</option>
+              <option value="330">Enstaka rastning 30 min – 330 kr</option>
+              <option value="440">Enstaka rastning 60 min – 440 kr</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="dogs">Antal hundar</label>
+            <input id="dogs" type="number" min="1" value="1" />
+          </div>
+
+          <button class="btn btn-primary" id="calcBtn" type="button">Räkna</button>
+          <div class="calc-result" id="calcResult" aria-live="polite">
+            Välj tjänst och antal hundar, tryck <b>Räkna</b>.
+          </div>
+
+          <div style="height:10px;"></div>
+          <a class="btn" href="sms:0735108270">Boka via SMS</a>
+          <a class="btn" href="mailto:k9daycare@tilia.com?subject=Bokningsförfrågan%20AX-Hundrastning%20(Lund)">Boka via mail</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>FAQ</h2>
+          <p>Snabba svar som gör det enklare att boka.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <details>
+          <summary>Hur bokar jag?</summary>
+          <p>Ring, SMS:a eller maila. Du kan också skriva i formuläret nedan – jag återkommer så snart jag kan.</p>
+        </details>
+        <details>
+          <summary>Kan jag prova innan abonnemang?</summary>
+          <p>Ja, en provrastning är ofta smart för att se att allt känns bra för både dig och hunden.</p>
+        </details>
+        <details>
+          <summary>Rastar du flera hundar samtidigt?</summary>
+          <p>Det kan gå, men bara om det är tryggt och passar hundarnas behov. Vi tar det från fall till fall.</p>
+        </details>
+        <details>
+          <summary>Avbokning?</summary>
+          <p>När du bestämt villkor kan vi lägga in en tydlig avbokningsregel här (t.ex. senast 24h innan).</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Kontakta / Boka</h2>
+          <p>Snabbast: ring eller SMS. Alternativt mail eller formulär.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+            <a class="btn btn-primary" href="tel:0735108270">Ring: 073-510 82 70</a>
+            <a class="btn" href="sms:0735108270">SMS</a>
+            <a class="btn" href="mailto:k9daycare@tilia.com?subject=Bokningsförfrågan%20AX-Hundrastning%20(Lund)">Mail</a>
+          </div>
+
+          <form id="contactForm" action="#" method="post" novalidate>
+            <div class="field">
+              <label for="name">Ditt namn</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="För- och efternamn" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Din e-postadress</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="namn@exempel.se" required />
+            </div>
+
+            <div class="field">
+              <label for="message">Ditt meddelande</label>
+              <textarea id="message" name="message" placeholder="Hundens ålder/ras, behov, önskade tider, område i Lund, abonnemang eller enstaka." required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Skicka (demo)</button>
+
+            <p class="note" style="margin-top:10px;">
+              Formuläret är demo just nu. När du vill publicera kopplar vi det till en riktig lösning.
+            </p>
+          </form>
+        </div>
+
+        <aside class="contact-card">
+          <h3 style="margin:0 0 8px;">Kontaktinfo</h3>
+          <p style="margin:0; color: var(--muted); font-size:14px;">
+            AX-Hundrastning • Lund
+          </p>
+
+          <div class="list">
+            <div class="item"><div><b>Telefon / SMS</b><span><a href="tel:0735108270">073-510 82 70</a></span></div></div>
+            <div class="item"><div><b>E-post</b><span><a href="mailto:k9daycare@tilia.com">k9daycare@tilia.com</a></span></div></div>
+            <div class="item"><div><b>Bokning</b><span>Tel • SMS • Mail</span></div></div>
+            <div class="item"><div><b>Område</b><span>Lund med omnejd (enligt överenskommelse)</span></div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>© <span id="year"></span> AX-Hundrastning. Alla rättigheter förbehållna.</span>
+        <span style="color:rgba(255,255,255,0.55);">HTML5 • Mobilanpassad • Snabb</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // Pricing calculator (dog #2+ = 50%)
+  const calcBtn = document.getElementById("calcBtn");
+  const service = document.getElementById("service");
+  const dogs = document.getElementById("dogs");
+  const result = document.getElementById("calcResult");
+
+  function formatSEK(x){ return x.toLocaleString("sv-SE") + " kr"; }
+  function calcPrice(){
+    const base = Number(service.value || 0);
+    let n = Number(dogs.value || 1);
+    if (!Number.isFinite(n) || n < 1) n = 1;
+    const total = base * (1 + Math.max(0, n - 1) * 0.5);
+    result.innerHTML = "Ungefärligt totalpris: <b>" + formatSEK(total) + "</b><br><span style='color:rgba(255,255,255,0.65); font-size:13px;'>Hund #2 och uppåt räknas som 50%.</span>";
+  }
+  calcBtn.addEventListener("click", calcPrice);
+
+  // Demo form submit
+  const form = document.getElementById("contactForm");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("message").value.trim();
+    if (!name || !email || !msg) { alert("Fyll i namn, e-post och meddelande."); return; }
+    alert("Tack! Skickat (demo). När du publicerar kopplar vi formuläret till en riktig tjänst.");
+    form.reset();
+  });
+</script>
+</body>
+</html>
