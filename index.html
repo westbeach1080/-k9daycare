@@ -3,49 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="K9 Care Lund – trygg hundrastning och promenader i Lund. Boka via telefon, SMS, e-post eller bokningslänk." />
-  <title>K9 Care Lund | Hundrastning & promenader i Lund</title>
+  <meta name="description" content="K9 Care Lund – trygg hundrastning och promenader i Lund. Boka enkelt online eller via telefon/SMS." />
+  <title>K9 Care Lund | Hundrastning i Lund</title>
 
-  <!-- ====== SNABBA INSTÄLLNINGAR (byt dessa) ====== -->
+  <!-- Snabba inställningar -->
   <script>
-    // 1) Byt till din riktiga bokningslänk (Calendly / Google Form)
-    const BOOKING_URL = "https://example.com/boka"; // <-- BYT
-
-    // 2) Byt till din riktiga företagsmail (helst egen domän)
-    const CONTACT_EMAIL = "kontakt@k9carelund.se"; // <-- BYT
-
-    // 3) Låt dessa vara om du vill
-    const SITE_URL = "https://westbeach1080.github.io/-k9daycare/";
-    const HERO_IMAGE = SITE_URL + "assets/ax_walk_3.jpg";
+    // BYT till din Calendly-länk när du har den
+    const BOOKING_URL = "https://example.com/boka";
+    // BYT till din mail (gärna egen domän)
+    const CONTACT_EMAIL = "k9daycare@telia.com";
+    const PHONE = "0735108270";
+    const PHONE_PRETTY = "073-510 82 70";
   </script>
-  <!-- ============================================ -->
 
-  <!-- Basic SEO -->
-  <meta name="keywords" content="hundrastning Lund, hundpromenad Lund, hundpassning Lund, hundrastare Lund, K9 Care Lund">
-  <meta name="theme-color" content="#070a0f">
-
-  <!-- Social sharing -->
-  <meta property="og:title" content="K9 Care Lund – Trygg hundrastning i Lund">
-  <meta property="og:description" content="Professionell hundrastning med tydliga rutiner, trygg hantering och snabb kommunikation.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://westbeach1080.github.io/-k9daycare/">
-  <meta property="og:image" content="https://westbeach1080.github.io/-k9daycare/assets/ax_walk_3.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="K9 Care Lund – Trygg hundrastning i Lund">
-  <meta name="twitter:description" content="Professionell hundrastning med tydliga rutiner, trygg hantering och snabb kommunikation.">
-  <meta name="twitter:image" content="https://westbeach1080.github.io/-k9daycare/assets/ax_walk_3.jpg">
-
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta name="theme-color" content="#070a0f" />
+  <meta property="og:title" content="K9 Care Lund – Trygg hundrastning i Lund" />
+  <meta property="og:description" content="Professionell hundrastning med tydliga rutiner, trygg hantering och snabb återkoppling." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://westbeach1080.github.io/-k9daycare/" />
+  <meta property="og:image" content="https://westbeach1080.github.io/-k9daycare/ax_walk_3.jpg" />
 
   <style>
     :root{
       --bg:#070a0f;
-      --panel:rgba(255,255,255,0.055);
-      --panel2:rgba(255,255,255,0.035);
       --text:rgba(255,255,255,0.92);
       --muted:rgba(255,255,255,0.70);
       --border:rgba(255,255,255,0.12);
+      --panel:rgba(255,255,255,0.055);
+      --panel2:rgba(255,255,255,0.035);
       --accent:#f2b13e;
       --accent2:#ffcf6a;
       --ok:#3bd671;
@@ -55,7 +40,7 @@
       --max:1120px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html, body{background:var(--bg);min-height:100vh}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -77,41 +62,33 @@
       background: rgba(7,10,15,0.70);
       border-bottom:1px solid var(--border);
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0;}
-    .brand{display:flex; align-items:center; gap:12px; min-width:240px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
     .logo{
-      width:44px; height:44px; border-radius:14px;
-      background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.20), transparent 55%),
-        linear-gradient(135deg, var(--accent), #d68c10);
+      width:44px;height:44px;border-radius:14px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.20), transparent 55%),
+                  linear-gradient(135deg, var(--accent2), var(--accent));
       box-shadow:0 18px 44px rgba(242,177,62,0.18);
       border:1px solid rgba(255,255,255,0.16);
-      display:grid; place-items:center;
+      display:grid;place-items:center;
+      color:#141414;font-weight:900;
     }
-    .logo svg{width:22px;height:22px;opacity:.92}
     .brand h1{font-size:15px;margin:0;letter-spacing:.3px;line-height:1.1}
     .brand p{margin:0;color:var(--muted);font-size:12px;line-height:1.2}
 
     nav ul{list-style:none;padding:0;margin:0;display:flex;gap:18px;align-items:center}
-    nav a{
-      font-size:14px; color:var(--muted);
-      padding:10px 10px; border-radius:12px;
-      transition:150ms ease;
-    }
+    nav a{font-size:14px;color:var(--muted);padding:10px 10px;border-radius:12px;transition:150ms ease}
     nav a:hover{color:var(--text);background:rgba(255,255,255,0.06)}
-
     .nav-right{display:flex;align-items:center;gap:10px}
 
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:11px 14px; border-radius:14px;
-      font-weight:800; letter-spacing:.2px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:11px 14px;border-radius:14px;font-weight:900;letter-spacing:.2px;
       border:1px solid rgba(255,255,255,0.14);
       background:rgba(255,255,255,0.06);
-      color:var(--text);
-      cursor:pointer;
+      color:var(--text);cursor:pointer;
       transition:transform 120ms ease, background 120ms ease, border 120ms ease, box-shadow 120ms ease;
-      user-select:none; white-space:nowrap;
+      white-space:nowrap;user-select:none;
     }
     .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.085);border-color:rgba(255,255,255,0.20)}
     .btn-primary{
@@ -121,22 +98,17 @@
       box-shadow:0 20px 50px rgba(242,177,62,0.18);
     }
     .btn-primary:hover{background: linear-gradient(135deg, #ffd889, #ffb53b);box-shadow:0 22px 56px rgba(242,177,62,0.22)}
-    .btn-icon{width:44px;height:44px;padding:0}
     .burger{display:none}
+    .btn-icon{width:44px;height:44px;padding:0}
 
-    .chip{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.14);
-      background:rgba(255,255,255,0.06);
-      color:var(--muted);
-      font-size:13px;
+    .mobile-menu{display:none;border-top:1px solid rgba(255,255,255,0.10);padding:10px 0 14px}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{
+      display:block;padding:10px 10px;border-radius:12px;color:var(--muted);
+      border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.04);margin:8px 0;
     }
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(59,214,113,0.12);}
+    .mobile-menu a:hover{color:var(--text);border-color:rgba(255,255,255,0.18)}
 
-    .hero{padding:46px 0 18px}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
     .panel{
       border:1px solid var(--border);
       background: linear-gradient(180deg, var(--panel), var(--panel2));
@@ -144,6 +116,9 @@
       border-radius:var(--radius2);
       overflow:hidden;
     }
+
+    .hero{padding:46px 0 18px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
     .hero-media{position:relative;height:360px;background:#0d1219}
     .hero-media img{width:100%;height:100%;object-fit:cover}
     .hero-overlay{
@@ -153,7 +128,15 @@
         radial-gradient(700px 420px at 20% 20%, rgba(242,177,62,0.12), transparent 62%);
     }
     .hero-body{padding:24px 26px 26px}
-    .hero-body h2{margin:10px 0 10px;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:-1px;}
+    .chip{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.06);
+      color:var(--muted);font-size:13px;
+    }
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(59,214,113,0.12);}
+    .hero-body h2{margin:10px 0 10px;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:-1px}
     .hero-body p{margin:0 0 18px;color:var(--muted);font-size:16px;max-width:62ch}
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 
@@ -199,19 +182,18 @@
     .pricing-wrap{display:grid;grid-template-columns:1fr .95fr;gap:12px;align-items:start}
     table{
       width:100%;
-      border-collapse:separate; border-spacing:0;
-      overflow:hidden; border-radius:var(--radius);
+      border-collapse:separate;border-spacing:0;
+      overflow:hidden;border-radius:var(--radius);
       border:1px solid var(--border);
       background:rgba(255,255,255,0.04);
     }
     thead th{
-      text-align:left; font-size:13px; color:rgba(255,255,255,0.86);
-      padding:12px 12px;
-      background:rgba(242,177,62,0.18);
+      text-align:left;font-size:13px;color:rgba(255,255,255,0.86);
+      padding:12px 12px;background:rgba(242,177,62,0.18);
       border-bottom:1px solid rgba(255,255,255,0.14);
     }
     tbody td{
-      padding:12px 12px; font-size:14px; color:rgba(255,255,255,0.90);
+      padding:12px 12px;font-size:14px;color:rgba(255,255,255,0.90);
       border-bottom:1px solid rgba(255,255,255,0.09);
       vertical-align:top;
     }
@@ -219,15 +201,14 @@
     tbody td:last-child{text-align:right;white-space:nowrap}
     .note{color:var(--muted);font-size:13px;margin-top:10px}
 
-    .calc{border:1px solid var(--border);background:rgba(255,255,255,0.045);border-radius:var(--radius);padding:16px;}
+    .calc{border:1px solid var(--border);background:rgba(255,255,255,0.045);border-radius:var(--radius);padding:16px}
     .calc h3{margin:0 0 8px;font-size:15px}
     .calc p{margin:0 0 12px;color:var(--muted);font-size:13px}
     .field{display:grid;gap:6px;margin-bottom:10px}
     label{font-size:13px;color:rgba(255,255,255,0.86)}
     input, select, textarea{
       width:100%;
-      padding:12px 12px;
-      border-radius:14px;
+      padding:12px 12px;border-radius:14px;
       border:1px solid rgba(255,255,255,0.14);
       background:rgba(10,13,18,0.65);
       color:var(--text);
@@ -249,16 +230,12 @@
       border-radius:var(--radius2);
       padding:18px;
       box-shadow:var(--shadow);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
     }
     .cta h3{margin:0;font-size:16px;letter-spacing:-.2px}
     .cta p{margin:6px 0 0;color:var(--muted);font-size:14px;max-width:70ch}
 
-    details{border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.045);border-radius:16px;padding:12px 12px;}
+    details{border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.045);border-radius:16px;padding:12px 12px}
     details summary{cursor:pointer;font-weight:900;list-style:none}
     details summary::-webkit-details-marker{display:none}
     details p{margin:10px 0 0;color:var(--muted);font-size:14px}
@@ -273,40 +250,15 @@
     }
     .list{display:grid;gap:10px;margin-top:10px}
     .list .item{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px; border-radius:16px;
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px;border-radius:16px;
       background:rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.10);
     }
     .item b{display:block;font-size:13px}
     .item span{display:block;color:var(--muted);font-size:13px}
 
-    .map{width:100%;height:260px;border:0;border-radius:18px;margin-top:12px;overflow:hidden;}
-
-    footer{padding:26px 0 36px;color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.10);margin-top:24px;}
-
-    @media (max-width: 940px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr}
-      .pricing-wrap{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      nav ul{display:none}
-      .burger{display:inline-flex}
-      .brand{min-width:unset}
-      .hero-media{height:300px}
-    }
-
-    .mobile-menu{display:none;border-top:1px solid rgba(255,255,255,0.10);padding:10px 0 14px;}
-    .mobile-menu.open{display:block}
-    .mobile-menu a{
-      display:block;padding:10px 10px;border-radius:12px;color:var(--muted);
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.04);
-      margin:8px 0;
-    }
-    .mobile-menu a:hover{color:var(--text);border-color:rgba(255,255,255,0.18)}
+    footer{padding:26px 0 36px;color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.10);margin-top:24px}
 
     .stickybar{
       display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;
@@ -336,9 +288,17 @@
       box-shadow:0 18px 44px rgba(242,177,62,0.18);
     }
     .stickybar .primary:hover{background: linear-gradient(135deg, #ffd889, #ffb53b);box-shadow:0 20px 52px rgba(242,177,62,0.22)}
-    .stickybar svg{width:18px;height:18px;opacity:.95}
 
     @media (max-width: 940px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .pricing-wrap{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .burger{display:inline-flex}
+      .hero-media{height:300px}
       .stickybar{display:block}
       body{padding-bottom:86px}
     }
@@ -350,12 +310,7 @@
   <div class="container">
     <div class="nav">
       <a class="brand" href="#top" aria-label="Gå till start">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M7.5 13.2c1.2 0 2.2-1 2.2-2.2 0-1.2-1-2.2-2.2-2.2-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2Zm9 0c1.2 0 2.2-1 2.2-2.2 0-1.2-1-2.2-2.2-2.2-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2Z" stroke="rgba(0,0,0,0.78)" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M8.2 15.6c1.4 1 2.9 1.5 3.8 1.5.9 0 2.4-.5 3.8-1.5" stroke="rgba(0,0,0,0.78)" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="logo" aria-hidden="true">K9</div>
         <div>
           <h1>K9 Care Lund</h1>
           <p>Lund • Trygg hundrastning • Tydliga rutiner</p>
@@ -365,7 +320,6 @@
       <nav aria-label="Huvudmeny">
         <ul>
           <li><a href="#tjanster">Tjänster</a></li>
-          <li><a href="#om">Om</a></li>
           <li><a href="#bilder">Bilder</a></li>
           <li><a href="#priser">Priser</a></li>
           <li><a href="#boka">Boka</a></li>
@@ -375,24 +329,9 @@
       </nav>
 
       <div class="nav-right">
-        <button class="btn btn-icon burger" id="menuBtn" aria-label="Öppna meny" aria-expanded="false">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
         <a class="btn" href="#priser">Prislista</a>
-        <a class="btn btn-primary" id="bookBtnTop" href="#boka">Boka tid</a>
+        <a class="btn btn-primary" href="#boka">Boka</a>
       </div>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu" aria-label="Mobilmeny">
-      <a href="#tjanster">Tjänster</a>
-      <a href="#om">Om</a>
-      <a href="#bilder">Bilder</a>
-      <a href="#priser">Priser</a>
-      <a href="#boka">Boka</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
     </div>
   </div>
 </header>
@@ -403,7 +342,8 @@
       <div class="hero-grid">
         <div class="panel">
           <div class="hero-media">
-            <img src="assets/ax_walk_3.jpg" alt="Hundrastning i Lund, kvällspromenad" />
+            <!-- Bilderna ligger i ROOT (inte assets) -->
+            <img src="ax_walk_3.jpg" alt="Hundrastning i Lund, kvällspromenad" />
             <div class="hero-overlay" aria-hidden="true"></div>
           </div>
           <div class="hero-body">
@@ -411,14 +351,13 @@
             <h2>Trygg hundrastning med struktur, omtanke och premiumkänsla.</h2>
             <p>
               Pålitlig rastning när tiden är knapp: tydliga rutiner, lugn hantering och snabb återkoppling.
-              Boka via telefon/SMS eller direkt via bokningslänken.
+              Boka online via Calendly eller via telefon/SMS.
             </p>
-
             <div class="hero-actions">
-              <a class="btn btn-primary" id="bookBtnHero" href="#boka">Boka tid online</a>
-              <a class="btn" href="tel:0735108270">Ring: 073-510 82 70</a>
-              <a class="btn" href="sms:0735108270">SMS:a</a>
-              <a class="btn" id="mailBtnHero" href="#">Maila</a>
+              <a class="btn btn-primary" id="bookBtnHero" href="#boka">Boka online</a>
+              <a class="btn" id="callBtnHero" href="#">Ring</a>
+              <a class="btn" id="smsBtnHero" href="#">SMS</a>
+              <a class="btn" id="mailBtnHero" href="#">Mail</a>
             </div>
           </div>
         </div>
@@ -438,8 +377,9 @@
           </div>
           <div class="card" style="margin:0">
             <h3>Kontakt</h3>
-            <p><b>Tel/SMS:</b> <a href="tel:0735108270">073-510 82 70</a><br>
-               <b>E-post:</b> <a id="mailLinkSide" href="#">—</a>
+            <p>
+              <b>Tel/SMS:</b> <a id="phoneSide" href="#">—</a><br>
+              <b>E-post:</b> <a id="mailSide" href="#">—</a>
             </p>
           </div>
         </aside>
@@ -467,32 +407,6 @@
       <div class="grid-2">
         <div class="card"><h3>Hämtning & lämning</h3><p>Enligt överenskommelse. Du får en kort status efteråt så du alltid har koll.</p></div>
         <div class="card"><h3>Skräddarsytt upplägg</h3><p>Har din hund särskilda behov? Vi sätter upp rutiner som funkar i vardagen.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="om">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Om K9 Care Lund</h2>
-          <p>Det här är upplägget: trygghet, struktur och tydlig kommunikation.</p>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Arbetssätt</h3>
-          <p>
-            Tydliga rutiner, punktlighet och respekt för varje hunds behov. Samma struktur varje gång – det skapar lugn.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Uppföljning</h3>
-          <p>
-            Efter promenaden får du en kort status (SMS vid behov). Du ska alltid veta hur det gick.
-          </p>
-        </div>
       </div>
     </div>
   </section>
@@ -528,7 +442,7 @@
       <div class="section-head">
         <div>
           <h2>Priser</h2>
-          <p>Priserna nedan gäller för månadsabonnemang. Enstaka rastningar går också bra.</p>
+          <p>Månadsabonnemang eller enstaka rastning. Hund #2 och uppåt: 50% (samma promenad).</p>
         </div>
       </div>
 
@@ -549,10 +463,7 @@
               <tr><td>Enstaka rastning, 60 min</td><td>440 kr</td></tr>
             </tbody>
           </table>
-
-          <p class="note">
-            Hund #2 och uppåt: <b>50%</b> rabatt (samma promenad, samma hushåll).
-          </p>
+          <p class="note">Vill du ha annat upplägg? Hör av dig så löser vi det.</p>
         </div>
 
         <aside class="calc" aria-label="Prisräknare">
@@ -580,53 +491,31 @@
             Välj tjänst och antal hundar, tryck <b>Räkna</b>.
           </div>
 
-          <div style="height:10px;"></div>
-          <a class="btn btn-primary" id="bookBtnPricing" href="#boka">Boka tid online</a>
+          <div style="height:10px"></div>
+          <a class="btn btn-primary" id="bookBtnPricing" href="#boka">Boka online</a>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- BOOKING SECTION -->
   <section id="boka">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Boka tid</h2>
-          <p>Välj snabbaste sättet. Online-bokning är bäst om du vill slippa fram och tillbaka.</p>
+          <h2>Boka</h2>
+          <p>Snabbast: Calendly. Alternativt ring/SMS.</p>
         </div>
       </div>
 
       <div class="cta">
         <div>
           <h3>Boka online (rekommenderas)</h3>
-          <p>Öppna bokningslänken, välj tid och skriv kort info om hunden. Klart.</p>
+          <p>Välj tid, skriv kort info om hunden och få bekräftelse direkt.</p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" id="bookBtnCTA" href="#" target="_blank" rel="noopener">Öppna bokning</a>
-          <a class="btn" href="tel:0735108270">Ring</a>
-          <a class="btn" href="sms:0735108270">SMS</a>
-        </div>
-      </div>
-
-      <div style="height:12px"></div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Vad du skriver vid bokning</h3>
-          <p>
-            1) Hundens ras/ålder<br>
-            2) Eventuella behov (rädsla, drag, möten)<br>
-            3) Önskade tider/dagar<br>
-            4) Om du vill ha abonnemang eller enstaka
-          </p>
-        </div>
-        <div class="card">
-          <h3>Snabb policy</h3>
-          <p>
-            Tydliga rutiner. Punktlighet. Kort uppföljning efter promenad.
-            Känns det inte rätt efter första promenaden – betalar du inget.
-          </p>
+          <a class="btn btn-primary" id="bookBtnCTA" href="#" target="_blank" rel="noopener">Öppna Calendly</a>
+          <a class="btn" id="callBtnCTA" href="#">Ring</a>
+          <a class="btn" id="smsBtnCTA" href="#">SMS</a>
         </div>
       </div>
     </div>
@@ -644,11 +533,11 @@
       <div class="grid-2">
         <details>
           <summary>Hur snabbt kan jag få en tid?</summary>
-          <p>Ofta samma dag eller inom 24–48h beroende på schema. Boka via länken för snabbast svar.</p>
+          <p>Ofta samma dag eller inom 24–48h beroende på schema. Boka via Calendly för snabbast svar.</p>
         </details>
         <details>
           <summary>Kan jag prova innan abonnemang?</summary>
-          <p>Ja. Provrastning är standard för att se att allt känns tryggt.</p>
+          <p>Ja. Provrastning är standard för att allt ska kännas tryggt.</p>
         </details>
         <details>
           <summary>Rastar du flera hundar samtidigt?</summary>
@@ -656,7 +545,7 @@
         </details>
         <details>
           <summary>Avbokning?</summary>
-          <p>Vi kan sätta en tydlig regel (t.ex. 24h). Säg vad du vill ha så lägger jag in exakt text.</p>
+          <p>Vi kan sätta en tydlig regel (t.ex. 24h). Säg vad du vill ha så lägger vi in exakt text.</p>
         </details>
       </div>
     </div>
@@ -674,8 +563,8 @@
       <div class="contact-grid">
         <div class="contact-card">
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
-            <a class="btn btn-primary" href="tel:0735108270">Ring: 073-510 82 70</a>
-            <a class="btn" href="sms:0735108270">SMS</a>
+            <a class="btn btn-primary" id="callBtnContact" href="#">Ring</a>
+            <a class="btn" id="smsBtnContact" href="#">SMS</a>
             <a class="btn" id="mailBtnContact" href="#">Mail</a>
             <a class="btn" id="bookBtnContact" href="#" target="_blank" rel="noopener">Boka online</a>
           </div>
@@ -709,14 +598,14 @@
           <p style="margin:0; color: var(--muted); font-size:14px;">K9 Care Lund • Lund</p>
 
           <div class="list">
-            <div class="item"><div><b>Telefon / SMS</b><span><a href="tel:0735108270">073-510 82 70</a></span></div></div>
-            <div class="item"><div><b>E-post</b><span><a id="mailLinkSide2" href="#">—</a></span></div></div>
-            <div class="item"><div><b>Bokning</b><span><a id="bookingLinkSide" href="#" target="_blank" rel="noopener">Boka online</a></span></div></div>
+            <div class="item"><div><b>Telefon / SMS</b><span><a id="phoneSide2" href="#">—</a></span></div></div>
+            <div class="item"><div><b>E-post</b><span><a id="mailSide2" href="#">—</a></span></div></div>
+            <div class="item"><div><b>Bokning</b><span><a id="bookSide" href="#" target="_blank" rel="noopener">Boka online</a></span></div></div>
             <div class="item"><div><b>Område</b><span>Lund med omnejd (enligt överenskommelse)</span></div></div>
           </div>
 
           <iframe
-            class="map"
+            style="width:100%;height:260px;border:0;border-radius:18px;margin-top:12px;overflow:hidden;"
             src="https://www.google.com/maps?q=Lund,Sweden&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -737,68 +626,48 @@
   </footer>
 </main>
 
-<!-- Sticky Mobile Bar -->
 <div class="stickybar" role="navigation" aria-label="Snabbkontakt">
   <div class="stickybar-inner">
-    <a href="tel:0735108270" aria-label="Ring">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6.6 10.3c1.5 3 4 5.6 7 7l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1v3.6c0 .6-.4 1-1 1C10.3 21.6 2.4 13.7 2.4 4.6c0-.6.4-1 1-1H7c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.3Z" stroke="rgba(255,255,255,0.92)" stroke-width="1.6" stroke-linejoin="round"/>
-      </svg>
-      Ring
-    </a>
-
-    <a href="sms:0735108270" aria-label="SMS">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" stroke="rgba(255,255,255,0.92)" stroke-width="1.6" stroke-linejoin="round"/>
-      </svg>
-      SMS
-    </a>
-
-    <a class="primary" id="bookBtnSticky" href="#" target="_blank" rel="noopener" aria-label="Boka online">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M7 3v3M17 3v3M4 8h16M6 12h4M6 16h4M14 12h4M14 16h4M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z" stroke="rgba(0,0,0,0.78)" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-      Boka
-    </a>
+    <a id="callBtnSticky" href="#">Ring</a>
+    <a id="smsBtnSticky" href="#">SMS</a>
+    <a class="primary" id="bookBtnSticky" href="#" target="_blank" rel="noopener">Boka</a>
   </div>
 </div>
 
 <script>
-  // år
+  // Year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // mobile menu
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-  if (menuBtn) {
-    menuBtn.addEventListener("click", () => {
-      const open = mobileMenu.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-  }
+  // Kontaktlänkar
+  const tel = "tel:" + PHONE;
+  const sms = "sms:" + PHONE;
+  const mailHref = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Bokningsförfrågan – K9 Care Lund");
 
-  // koppla mail + bokning överallt
-  const mailHref = "mailto:" + encodeURIComponent(CONTACT_EMAIL) + "?subject=" + encodeURIComponent("Bokningsförfrågan – K9 Care Lund");
-  const mailText = CONTACT_EMAIL;
-
-  const mailIds = ["mailBtnHero","mailBtnContact","mailLinkSide","mailLinkSide2"];
-  mailIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.href = mailHref;
-    el.textContent = (el.tagName.toLowerCase() === "a" && (id==="mailLinkSide" || id==="mailLinkSide2")) ? mailText : el.textContent;
+  // Telefon
+  ["callBtnHero","callBtnCTA","callBtnContact","callBtnSticky"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href=tel;
+  });
+  ["smsBtnHero","smsBtnCTA","smsBtnContact","smsBtnSticky"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href=sms;
+  });
+  ["phoneSide","phoneSide2"].forEach(id=>{
+    const el=document.getElementById(id); if(el){ el.href=tel; el.textContent=PHONE_PRETTY; }
   });
 
-  const bookingIds = ["bookBtnTop","bookBtnHero","bookBtnPricing","bookBtnCTA","bookBtnContact","bookingLinkSide","bookBtnSticky"];
-  bookingIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    // vissa knappar går till sektion, vissa ska öppna extern bokning
-    if (id === "bookBtnTop" || id === "bookBtnHero" || id === "bookBtnPricing") {
-      el.href = "#boka";
-    } else {
-      el.href = BOOKING_URL;
-    }
+  // Mail
+  ["mailBtnHero","mailBtnContact"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href=mailHref;
+  });
+  ["mailSide","mailSide2"].forEach(id=>{
+    const el=document.getElementById(id); if(el){ el.href=mailHref; el.textContent=CONTACT_EMAIL; }
+  });
+
+  // Bokning
+  ["bookBtnCTA","bookBtnContact","bookBtnSticky","bookSide"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href=BOOKING_URL;
+  });
+  ["bookBtnHero","bookBtnPricing"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href="#boka";
   });
 
   // Prisräknare
@@ -806,7 +675,6 @@
   const service = document.getElementById("service");
   const dogs = document.getElementById("dogs");
   const result = document.getElementById("calcResult");
-
   function formatSEK(x){ return x.toLocaleString("sv-SE") + " kr"; }
   function calcPrice(){
     const base = Number(service.value || 0);
@@ -815,11 +683,11 @@
     const total = base * (1 + Math.max(0, n - 1) * 0.5);
     result.innerHTML =
       "Ungefärligt totalpris: <b>" + formatSEK(total) + "</b><br>" +
-      "<span style='color:rgba(255,255,255,0.65); font-size:13px;'>Hund #2 och uppåt räknas som 50% (samma promenad).</span>";
+      "<span style='color:rgba(255,255,255,0.65); font-size:13px;'>Hund #2 och uppåt räknas som 50%.</span>";
   }
   if (calcBtn) calcBtn.addEventListener("click", calcPrice);
 
-  // Demo form
+  // Demoform
   const form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -828,39 +696,25 @@
       const email = document.getElementById("email").value.trim();
       const msg = document.getElementById("message").value.trim();
       if (!name || !email || !msg) { alert("Fyll i namn, e-post och meddelande."); return; }
-      alert("Tack! Skickat (demo). För riktig bokning: använd bokningslänken, ring, SMS eller mail.");
+      alert("Tack! Skickat (demo). För riktig bokning: använd Calendly-länken, ring, SMS eller mail.");
       form.reset();
     });
   }
-
-  // Sätt OG-meta dynamiskt (valfritt)
-  // (Lämnar statiska meta kvar, men du kan enkelt byta om du vill)
 </script>
 
-<!-- Proffsig LocalBusiness schema -->
+<!-- LocalBusiness schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "K9 Care Lund",
   "url": "https://westbeach1080.github.io/-k9daycare/",
-  "image": "https://westbeach1080.github.io/-k9daycare/assets/ax_walk_3.jpg",
+  "image": "https://westbeach1080.github.io/-k9daycare/ax_walk_3.jpg",
   "telephone": "+46735108270",
-  "email": "kontakt@k9carelund.se",
+  "email": "k9daycare@telia.com",
   "priceRange": "330–2750 SEK",
   "areaServed": [{"@type":"City","name":"Lund"}],
   "address": {"@type":"PostalAddress","addressLocality":"Lund","addressCountry":"SE"},
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "20:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "18:00" }
-  ],
-  "makesOffer": [
-    { "@type": "Offer", "name": "Enstaka rastning 30 min", "price": "330", "priceCurrency": "SEK" },
-    { "@type": "Offer", "name": "Enstaka rastning 60 min", "price": "440", "priceCurrency": "SEK" },
-    { "@type": "Offer", "name": "Månadsabonnemang 30 min (1 dag/vecka)", "price": "1100", "priceCurrency": "SEK" },
-    { "@type": "Offer", "name": "Månadsabonnemang 30 min (2 dagar/vecka)", "price": "2200", "priceCurrency": "SEK" },
-    { "@type": "Offer", "name": "Månadsabonnemang 30 min (3 dagar/vecka)", "price": "2750", "priceCurrency": "SEK" }
-  ],
   "potentialAction": {
     "@type": "ReserveAction",
     "target": "https://example.com/boka",
