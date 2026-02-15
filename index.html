@@ -1,37 +1,43 @@
-<!DOCTYPE html>
-<!-- saved from url=(0043)https://westbeach1080.github.io/-k9daycare/ -->
-<html lang="sv"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="K9 Care Lund – trygg hundrastning och promenader i Lund. Boka enkelt online eller via telefon/SMS.">
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="K9 Care Lund – trygg hundrastning och promenader i Lund. Boka enkelt online eller via telefon/SMS." />
   <title>K9 Care Lund | Hundrastning i Lund</title>
 
-  <!-- Snabba inställningar -->
+  <!-- ===== SNABBA INSTÄLLNINGAR (byt dessa 3) ===== -->
   <script>
-    // BYT till din Calendly-länk när du har den
+    // 1) BYT till din riktiga Calendly-länk
     const BOOKING_URL = "https://example.com/boka";
-    // BYT till din mail (gärna egen domän)
+
+    // 2) Din mail
     const CONTACT_EMAIL = "k9daycare@telia.com";
+
+    // 3) Telefon (utan bindestreck)
     const PHONE = "0735108270";
     const PHONE_PRETTY = "073-510 82 70";
   </script>
+  <!-- ============================================ -->
 
-  <meta name="theme-color" content="#070a0f">
-  <meta property="og:title" content="K9 Care Lund – Trygg hundrastning i Lund">
-  <meta property="og:description" content="Professionell hundrastning med tydliga rutiner, trygg hantering och snabb återkoppling.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://westbeach1080.github.io/-k9daycare/">
-  <!-- FIX: og:image ska peka på assets -->
-  <meta property="og:image" content="https://westbeach1080.github.io/-k9daycare/assets/ax_walk_3.jpg">
+  <meta name="theme-color" content="#070a0f" />
+
+  <!-- Social sharing -->
+  <meta property="og:title" content="K9 Care Lund – Trygg hundrastning i Lund" />
+  <meta property="og:description" content="Professionell hundrastning med tydliga rutiner, trygg hantering och snabb återkoppling." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://westbeach1080.github.io/-k9daycare/" />
+  <meta property="og:image" content="https://westbeach1080.github.io/-k9daycare/assets/ax_walk_3.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root{
       --bg:#070a0f;
+      --panel:rgba(255,255,255,0.055);
+      --panel2:rgba(255,255,255,0.035);
       --text:rgba(255,255,255,0.92);
       --muted:rgba(255,255,255,0.70);
       --border:rgba(255,255,255,0.12);
-      --panel:rgba(255,255,255,0.055);
-      --panel2:rgba(255,255,255,0.035);
       --accent:#f2b13e;
       --accent2:#ffcf6a;
       --ok:#3bd671;
@@ -41,7 +47,7 @@
       --max:1120px;
     }
     *{box-sizing:border-box}
-    html, body{background:var(--bg);min-height:100vh}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -63,33 +69,43 @@
       background: rgba(7,10,15,0.70);
       border-bottom:1px solid var(--border);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
     .logo{
       width:44px;height:44px;border-radius:14px;
-      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.20), transparent 55%),
-                  linear-gradient(135deg, var(--accent2), var(--accent));
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.20), transparent 55%),
+        linear-gradient(135deg, var(--accent2), var(--accent));
       box-shadow:0 18px 44px rgba(242,177,62,0.18);
       border:1px solid rgba(255,255,255,0.16);
       display:grid;place-items:center;
-      color:#141414;font-weight:900;
+      color:#141414;font-weight:900; letter-spacing:.6px;
     }
     .brand h1{font-size:15px;margin:0;letter-spacing:.3px;line-height:1.1}
     .brand p{margin:0;color:var(--muted);font-size:12px;line-height:1.2}
 
     nav ul{list-style:none;padding:0;margin:0;display:flex;gap:18px;align-items:center}
-    nav a{font-size:14px;color:var(--muted);padding:10px 10px;border-radius:12px;transition:150ms ease}
+    nav a{
+      font-size:14px; color:var(--muted);
+      padding:10px 10px; border-radius:12px;
+      transition:150ms ease;
+    }
     nav a:hover{color:var(--text);background:rgba(255,255,255,0.06)}
     .nav-right{display:flex;align-items:center;gap:10px}
-
+    .burger{display:none}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:11px 14px;border-radius:14px;font-weight:900;letter-spacing:.2px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px; border-radius:14px;
+      font-weight:900; letter-spacing:.2px;
       border:1px solid rgba(255,255,255,0.14);
       background:rgba(255,255,255,0.06);
-      color:var(--text);cursor:pointer;
+      color:var(--text);
+      cursor:pointer;
       transition:transform 120ms ease, background 120ms ease, border 120ms ease, box-shadow 120ms ease;
-      white-space:nowrap;user-select:none;
+      user-select:none; white-space:nowrap;
     }
     .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.085);border-color:rgba(255,255,255,0.20)}
     .btn-primary{
@@ -98,15 +114,26 @@
       background: linear-gradient(135deg, var(--accent2), var(--accent));
       box-shadow:0 20px 50px rgba(242,177,62,0.18);
     }
-    .btn-primary:hover{background: linear-gradient(135deg, #ffd889, #ffb53b);box-shadow:0 22px 56px rgba(242,177,62,0.22)}
-    .burger{display:none}
+    .btn-primary:hover{
+      background: linear-gradient(135deg, #ffd889, #ffb53b);
+      box-shadow:0 22px 56px rgba(242,177,62,0.22)
+    }
     .btn-icon{width:44px;height:44px;padding:0}
 
-    .mobile-menu{display:none;border-top:1px solid rgba(255,255,255,0.10);padding:10px 0 14px}
+    .mobile-menu{
+      display:none;
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding:10px 0 14px;
+    }
     .mobile-menu.open{display:block}
     .mobile-menu a{
-      display:block;padding:10px 10px;border-radius:12px;color:var(--muted);
-      border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.04);margin:8px 0;
+      display:block;
+      padding:10px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04);
+      margin:8px 0;
     }
     .mobile-menu a:hover{color:var(--text);border-color:rgba(255,255,255,0.18)}
 
@@ -130,11 +157,13 @@
     }
     .hero-body{padding:24px 26px 26px}
     .chip{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border-radius:999px;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,0.14);
       background:rgba(255,255,255,0.06);
-      color:var(--muted);font-size:13px;
+      color:var(--muted);
+      font-size:13px;
     }
     .dot{width:10px;height:10px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(59,214,113,0.12);}
     .hero-body h2{margin:10px 0 10px;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:-1px}
@@ -179,6 +208,17 @@
       font-size:13px;
       backdrop-filter:blur(10px);
     }
+
+    .stars{display:flex;gap:4px;align-items:center;margin:0 0 10px}
+    .star{
+      width:16px;height:16px;display:inline-block;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.25), transparent 45%),
+                  linear-gradient(135deg, var(--accent2), var(--accent));
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      box-shadow:0 10px 20px rgba(242,177,62,0.12);
+    }
+    .review-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:rgba(255,255,255,0.65);font-size:13px;margin-top:10px}
+    .quote{color:rgba(255,255,255,0.90);font-size:14px;margin:0}
 
     .pricing-wrap{display:grid;grid-template-columns:1fr .95fr;gap:12px;align-items:start}
     table{
@@ -259,7 +299,13 @@
     .item b{display:block;font-size:13px}
     .item span{display:block;color:var(--muted);font-size:13px}
 
-    footer{padding:26px 0 36px;color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.10);margin-top:24px}
+    footer{
+      padding:26px 0 36px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,0.10);
+      margin-top:24px;
+    }
 
     .stickybar{
       display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;
@@ -299,9 +345,9 @@
       .contact-grid{grid-template-columns:1fr}
       nav ul{display:none}
       .burger{display:inline-flex}
-      .hero-media{height:300px}
       .stickybar{display:block}
       body{padding-bottom:86px}
+      .hero-media{height:300px}
     }
   </style>
 </head>
@@ -310,7 +356,7 @@
 <header>
   <div class="container">
     <div class="nav">
-      <a class="brand" href="https://westbeach1080.github.io/-k9daycare/#top" aria-label="Gå till start">
+      <a class="brand" href="#top" aria-label="Gå till start">
         <div class="logo" aria-hidden="true">K9</div>
         <div>
           <h1>K9 Care Lund</h1>
@@ -320,19 +366,35 @@
 
       <nav aria-label="Huvudmeny">
         <ul>
-          <li><a href="https://westbeach1080.github.io/-k9daycare/#tjanster">Tjänster</a></li>
-          <li><a href="https://westbeach1080.github.io/-k9daycare/#bilder">Bilder</a></li>
-          <li><a href="https://westbeach1080.github.io/-k9daycare/#priser">Priser</a></li>
-          <li><a href="https://westbeach1080.github.io/-k9daycare/#boka">Boka</a></li>
-          <li><a href="https://westbeach1080.github.io/-k9daycare/#faq">FAQ</a></li>
-          <li><a href="https://westbeach1080.github.io/-k9daycare/#kontakt">Kontakt</a></li>
+          <li><a href="#tjanster">Tjänster</a></li>
+          <li><a href="#recensioner">Recensioner</a></li>
+          <li><a href="#bilder">Bilder</a></li>
+          <li><a href="#priser">Priser</a></li>
+          <li><a href="#boka">Boka</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
 
       <div class="nav-right">
-        <a class="btn" href="https://westbeach1080.github.io/-k9daycare/#priser">Prislista</a>
-        <a class="btn btn-primary" href="https://westbeach1080.github.io/-k9daycare/#boka">Boka</a>
+        <button class="btn btn-icon burger" id="menuBtn" aria-label="Öppna meny" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a class="btn" href="#priser">Prislista</a>
+        <a class="btn btn-primary" id="bookBtnTop" href="#boka">Boka</a>
       </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-label="Mobilmeny">
+      <a href="#tjanster">Tjänster</a>
+      <a href="#recensioner">Recensioner</a>
+      <a href="#bilder">Bilder</a>
+      <a href="#priser">Priser</a>
+      <a href="#boka">Boka</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
     </div>
   </div>
 </header>
@@ -343,22 +405,24 @@
       <div class="hero-grid">
         <div class="panel">
           <div class="hero-media">
-            <!-- FIX: peka på assets -->
-            <img src="./index_files/ax_walk_3.jpg" alt="Hundrastning i Lund, kvällspromenad">
+            <!-- VIKTIGT: dina bilder ligger i /assets/ -->
+            <img src="assets/ax_walk_3.jpg" alt="Hundrastning i Lund, kvällspromenad" />
             <div class="hero-overlay" aria-hidden="true"></div>
           </div>
+
           <div class="hero-body">
             <div class="chip"><span class="dot"></span> Hundrastning i Lund • Boka på 1 minut</div>
             <h2>Trygg hundrastning med struktur, omtanke och premiumkänsla.</h2>
             <p>
               Pålitlig rastning när tiden är knapp: tydliga rutiner, lugn hantering och snabb återkoppling.
-              Boka online via Calendly eller via telefon/SMS.
+              Boka online via länken eller ring/SMS.
             </p>
+
             <div class="hero-actions">
-              <a class="btn btn-primary" id="bookBtnHero" href="https://westbeach1080.github.io/-k9daycare/#boka">Boka online</a>
-              <a class="btn" id="callBtnHero" href="tel:0735108270">Ring</a>
-              <a class="btn" id="smsBtnHero" href="sms:0735108270">SMS</a>
-              <a class="btn" id="mailBtnHero" href="mailto:k9daycare@telia.com?subject=Bokningsf%C3%B6rfr%C3%A5gan%20%E2%80%93%20K9%20Care%20Lund">Mail</a>
+              <a class="btn btn-primary" id="bookBtnHero" href="#boka">Boka online</a>
+              <a class="btn" id="callBtnHero" href="#">Ring</a>
+              <a class="btn" id="smsBtnHero" href="#">SMS</a>
+              <a class="btn" id="mailBtnHero" href="#">Mail</a>
             </div>
           </div>
         </div>
@@ -379,8 +443,8 @@
           <div class="card" style="margin:0">
             <h3>Kontakt</h3>
             <p>
-              <b>Tel/SMS:</b> <a id="phoneSide" href="tel:0735108270">073-510 82 70</a><br>
-              <b>E-post:</b> <a id="mailSide" href="mailto:k9daycare@telia.com?subject=Bokningsf%C3%B6rfr%C3%A5gan%20%E2%80%93%20K9%20Care%20Lund">k9daycare@telia.com</a>
+              <b>Tel/SMS:</b> <a id="phoneSide" href="#">—</a><br>
+              <b>E-post:</b> <a id="mailSide" href="#">—</a>
             </p>
           </div>
         </aside>
@@ -406,9 +470,53 @@
       <div style="height:12px"></div>
 
       <div class="grid-2">
-        <div class="card"><h3>Hämtning &amp; lämning</h3><p>Enligt överenskommelse. Du får en kort status efteråt så du alltid har koll.</p></div>
+        <div class="card"><h3>Hämtning & lämning</h3><p>Enligt överenskommelse. Du får en kort status efteråt så du alltid har koll.</p></div>
         <div class="card"><h3>Skräddarsytt upplägg</h3><p>Har din hund särskilda behov? Vi sätter upp rutiner som funkar i vardagen.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="recensioner">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Recensioner</h2>
+          <p>Exempeltexter (placeholder) så du ser hur det kommer se ut. Byt senare till riktiga kundomdömen.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+          <p class="quote">“Alltid punktlig och tydlig. Vår hund blev lugnare redan efter första veckan.”</p>
+          <div class="review-meta">
+            <span><b>Anna</b> • Lund</span>
+            <span>Abonnemang 2 dagar/vecka</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+          <p class="quote">“Superbra uppdateringar efter promenaden. Känns tryggt från start till mål.”</p>
+          <div class="review-meta">
+            <span><b>Johan</b> • Lund</span>
+            <span>Enstaka + återkommande</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+          <p class="quote">“Proffsigt bemötande och bra rutin vid hämtning/lämning. Rekommenderas.”</p>
+          <div class="review-meta">
+            <span><b>Maria</b> • Lund</span>
+            <span>Lunchrastning</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:12px;">
+        Tips: När du har riktiga recensioner, lägg gärna “Förnamn + stadsdel” och typ av tjänst. Det ser äkta ut.
+      </p>
     </div>
   </section>
 
@@ -423,21 +531,23 @@
 
       <div class="gallery" aria-label="Bildgalleri">
         <figure class="shot">
-          <!-- FIX: peka på assets -->
-          <img src="./index_files/ax_walk_1.jpg" alt="Hundrastning i stadsmiljö">
-          <figcaption class="cap">Stadsmiljö • trygg hantering &amp; struktur</figcaption>
+          <img src="assets/ax_walk_1.jpg" alt="Hundrastning i stadsmiljö" />
+          <figcaption class="cap">Stadsmiljö • trygg hantering & struktur</figcaption>
         </figure>
         <figure class="shot">
-          <!-- FIX: peka på assets -->
-          <img src="./index_files/ax_walk_2.jpg" alt="Hundrastning i parkmiljö">
-          <figcaption class="cap">Park • lugn stimulans &amp; nosarbete</figcaption>
+          <img src="assets/ax_walk_2.jpg" alt="Hundrastning i parkmiljö" />
+          <figcaption class="cap">Park • lugn stimulans & nosarbete</figcaption>
         </figure>
         <figure class="shot">
-          <!-- FIX: peka på assets -->
-          <img src="./index_files/ax_walk_3.jpg" alt="Hundrastning i kvällsljus">
-          <figcaption class="cap">Kvällsrunda • varva ner &amp; avsluta dagen</figcaption>
+          <img src="assets/ax_walk_3.jpg" alt="Hundrastning i kvällsljus" />
+          <figcaption class="cap">Kvällsrunda • varva ner & avsluta dagen</figcaption>
         </figure>
       </div>
+
+      <p class="note">
+        Om du får 404 på bilder: kontrollera att filerna heter exakt <b>ax_walk_1.jpg</b>, <b>ax_walk_2.jpg</b>, <b>ax_walk_3.jpg</b>
+        och ligger i mappen <b>assets</b> (små/stora bokstäver måste matcha).
+      </p>
     </div>
   </section>
 
@@ -467,6 +577,7 @@
               <tr><td>Enstaka rastning, 60 min</td><td>440 kr</td></tr>
             </tbody>
           </table>
+
           <p class="note">Vill du ha annat upplägg? Hör av dig så löser vi det.</p>
         </div>
 
@@ -487,7 +598,7 @@
 
           <div class="field">
             <label for="dogs">Antal hundar</label>
-            <input id="dogs" type="number" min="1" value="1">
+            <input id="dogs" type="number" min="1" value="1" />
           </div>
 
           <button class="btn btn-primary" id="calcBtn" type="button">Räkna</button>
@@ -495,8 +606,8 @@
             Välj tjänst och antal hundar, tryck <b>Räkna</b>.
           </div>
 
-          <div style="height:10px"></div>
-          <a class="btn btn-primary" id="bookBtnPricing" href="https://westbeach1080.github.io/-k9daycare/#boka">Boka online</a>
+          <div style="height:10px;"></div>
+          <a class="btn btn-primary" id="bookBtnPricing" href="#boka">Boka online</a>
         </aside>
       </div>
     </div>
@@ -507,7 +618,7 @@
       <div class="section-head">
         <div>
           <h2>Boka</h2>
-          <p>Snabbast: Calendly. Alternativt ring/SMS.</p>
+          <p>Snabbast: onlinebokning. Alternativt ring/SMS.</p>
         </div>
       </div>
 
@@ -517,9 +628,30 @@
           <p>Välj tid, skriv kort info om hunden och få bekräftelse direkt.</p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" id="bookBtnCTA" href="https://example.com/boka" target="_blank" rel="noopener">Öppna Calendly</a>
-          <a class="btn" id="callBtnCTA" href="tel:0735108270">Ring</a>
-          <a class="btn" id="smsBtnCTA" href="sms:0735108270">SMS</a>
+          <a class="btn btn-primary" id="bookBtnCTA" href="#" target="_blank" rel="noopener">Öppna bokning</a>
+          <a class="btn" id="callBtnCTA" href="#">Ring</a>
+          <a class="btn" id="smsBtnCTA" href="#">SMS</a>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Vad du skriver vid bokning</h3>
+          <p>
+            1) Hundens ras/ålder<br>
+            2) Eventuella behov (rädsla, drag, möten)<br>
+            3) Önskade tider/dagar<br>
+            4) Abonnemang eller enstaka
+          </p>
+        </div>
+        <div class="card">
+          <h3>Snabb policy</h3>
+          <p>
+            Punctlighet. Tydliga rutiner. Kort uppföljning efter promenad.
+            Känns det inte rätt efter första promenaden – betalar du inget.
+          </p>
         </div>
       </div>
     </div>
@@ -537,7 +669,7 @@
       <div class="grid-2">
         <details>
           <summary>Hur snabbt kan jag få en tid?</summary>
-          <p>Ofta samma dag eller inom 24–48h beroende på schema. Boka via Calendly för snabbast svar.</p>
+          <p>Ofta samma dag eller inom 24–48h beroende på schema. Onlinebokning är snabbast.</p>
         </details>
         <details>
           <summary>Kan jag prova innan abonnemang?</summary>
@@ -549,7 +681,7 @@
         </details>
         <details>
           <summary>Avbokning?</summary>
-          <p>Vi kan sätta en tydlig regel (t.ex. 24h). Säg vad du vill ha så lägger vi in exakt text.</p>
+          <p>Vill du ha en strikt regel (t.ex. 24h)? Säg till så skriver vi in exakt text.</p>
         </details>
       </div>
     </div>
@@ -567,29 +699,29 @@
       <div class="contact-grid">
         <div class="contact-card">
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
-            <a class="btn btn-primary" id="callBtnContact" href="tel:0735108270">Ring</a>
-            <a class="btn" id="smsBtnContact" href="sms:0735108270">SMS</a>
-            <a class="btn" id="mailBtnContact" href="mailto:k9daycare@telia.com?subject=Bokningsf%C3%B6rfr%C3%A5gan%20%E2%80%93%20K9%20Care%20Lund">Mail</a>
-            <a class="btn" id="bookBtnContact" href="https://example.com/boka" target="_blank" rel="noopener">Boka online</a>
+            <a class="btn btn-primary" id="callBtnContact" href="#">Ring</a>
+            <a class="btn" id="smsBtnContact" href="#">SMS</a>
+            <a class="btn" id="mailBtnContact" href="#">Mail</a>
+            <a class="btn" id="bookBtnContact" href="#" target="_blank" rel="noopener">Boka online</a>
           </div>
 
-          <form id="contactForm" action="https://westbeach1080.github.io/-k9daycare/#" method="post" novalidate="">
+          <form id="contactForm" action="#" method="post" novalidate>
             <div class="field">
               <label for="name">Ditt namn</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="För- och efternamn" required="">
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="För- och efternamn" required />
             </div>
 
             <div class="field">
               <label for="email">Din e-postadress</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="namn@exempel.se" required="">
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="namn@exempel.se" required />
             </div>
 
             <div class="field">
               <label for="message">Ditt meddelande</label>
-              <textarea id="message" name="message" placeholder="Hundens ålder/ras, behov, önskade tider, område i Lund, abonnemang eller enstaka." required=""></textarea>
+              <textarea id="message" name="message" placeholder="Hundens ålder/ras, behov, önskade tider, område i Lund, abonnemang eller enstaka." required></textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit">Skicka</button>
+            <button class="btn btn-primary" type="submit">Skicka (demo)</button>
 
             <p class="note" style="margin-top:10px;">
               Formuläret är demo. För riktig kontakt: boka online, ring, SMS eller mail.
@@ -602,13 +734,18 @@
           <p style="margin:0; color: var(--muted); font-size:14px;">K9 Care Lund • Lund</p>
 
           <div class="list">
-            <div class="item"><div><b>Telefon / SMS</b><span><a id="phoneSide2" href="tel:0735108270">073-510 82 70</a></span></div></div>
-            <div class="item"><div><b>E-post</b><span><a id="mailSide2" href="mailto:k9daycare@telia.com?subject=Bokningsf%C3%B6rfr%C3%A5gan%20%E2%80%93%20K9%20Care%20Lund">k9daycare@telia.com</a></span></div></div>
-            <div class="item"><div><b>Bokning</b><span><a id="bookSide" href="https://example.com/boka" target="_blank" rel="noopener">Boka online</a></span></div></div>
+            <div class="item"><div><b>Telefon / SMS</b><span><a id="phoneSide2" href="#">—</a></span></div></div>
+            <div class="item"><div><b>E-post</b><span><a id="mailSide2" href="#">—</a></span></div></div>
+            <div class="item"><div><b>Bokning</b><span><a id="bookSide" href="#" target="_blank" rel="noopener">Boka online</a></span></div></div>
             <div class="item"><div><b>Område</b><span>Lund med omnejd (enligt överenskommelse)</span></div></div>
           </div>
 
-          <iframe style="width:100%;height:260px;border:0;border-radius:18px;margin-top:12px;overflow:hidden;" src="./index_files/maps.html" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Karta – Lund">
+          <iframe
+            style="width:100%;height:260px;border:0;border-radius:18px;margin-top:12px;overflow:hidden;"
+            src="https://www.google.com/maps?q=Lund,Sweden&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Karta – Lund">
           </iframe>
         </aside>
       </div>
@@ -618,26 +755,37 @@
   <footer>
     <div class="container">
       <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-        <span>© <span id="year">2026</span> K9 Care Lund. Alla rättigheter förbehållna.</span>
+        <span>© <span id="year"></span> K9 Care Lund. Alla rättigheter förbehållna.</span>
         <span style="color:rgba(255,255,255,0.55);">Snabb • Mobilanpassad • Tydliga rutiner</span>
       </div>
     </div>
   </footer>
 </main>
 
+<!-- Sticky Mobile Bar -->
 <div class="stickybar" role="navigation" aria-label="Snabbkontakt">
   <div class="stickybar-inner">
-    <a id="callBtnSticky" href="tel:0735108270">Ring</a>
-    <a id="smsBtnSticky" href="sms:0735108270">SMS</a>
-    <a class="primary" id="bookBtnSticky" href="https://example.com/boka" target="_blank" rel="noopener">Boka</a>
+    <a id="callBtnSticky" href="#">Ring</a>
+    <a id="smsBtnSticky" href="#">SMS</a>
+    <a class="primary" id="bookBtnSticky" href="#" target="_blank" rel="noopener">Boka</a>
   </div>
 </div>
 
 <script>
-  // Year
+  // År
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Kontaktlänkar
+  // Mobilmeny
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // Länkar
   const tel = "tel:" + PHONE;
   const sms = "sms:" + PHONE;
   const mailHref = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Bokningsförfrågan – K9 Care Lund");
@@ -650,23 +798,26 @@
     const el=document.getElementById(id); if(el) el.href=sms;
   });
   ["phoneSide","phoneSide2"].forEach(id=>{
-    const el=document.getElementById(id); if(el){ el.href=tel; el.textContent=PHONE_PRETTY; }
+    const el=document.getElementById(id);
+    if(el){ el.href=tel; el.textContent=PHONE_PRETTY; }
   });
 
   // Mail
-  ["mailBtnHero","mailBtnContact"].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.href=mailHref;
-  });
-  ["mailSide","mailSide2"].forEach(id=>{
-    const el=document.getElementById(id); if(el){ el.href=mailHref; el.textContent=CONTACT_EMAIL; }
+  ["mailBtnHero","mailBtnContact","mailSide","mailSide2"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){ el.href=mailHref; el.textContent = (id==="mailSide" || id==="mailSide2") ? CONTACT_EMAIL : el.textContent; }
   });
 
-  // Bokning
+  // Bokning (extern)
   ["bookBtnCTA","bookBtnContact","bookBtnSticky","bookSide"].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.href=BOOKING_URL;
+    const el=document.getElementById(id);
+    if(el) el.href=BOOKING_URL;
   });
-  ["bookBtnHero","bookBtnPricing"].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.href="#boka";
+
+  // Bokning (scroll till sektion)
+  ["bookBtnTop","bookBtnHero","bookBtnPricing"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.href="#boka";
   });
 
   // Prisräknare
@@ -674,6 +825,7 @@
   const service = document.getElementById("service");
   const dogs = document.getElementById("dogs");
   const result = document.getElementById("calcResult");
+
   function formatSEK(x){ return x.toLocaleString("sv-SE") + " kr"; }
   function calcPrice(){
     const base = Number(service.value || 0);
@@ -682,11 +834,11 @@
     const total = base * (1 + Math.max(0, n - 1) * 0.5);
     result.innerHTML =
       "Ungefärligt totalpris: <b>" + formatSEK(total) + "</b><br>" +
-      "<span style='color:rgba(255,255,255,0.65); font-size:13px;'>Hund #2 och uppåt räknas som 50%.</span>";
+      "<span style='color:rgba(255,255,255,0.65); font-size:13px;'>Hund #2 och uppåt räknas som 50% (samma promenad).</span>";
   }
   if (calcBtn) calcBtn.addEventListener("click", calcPrice);
 
-  // Demoform
+  // Demo-form
   const form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -695,7 +847,7 @@
       const email = document.getElementById("email").value.trim();
       const msg = document.getElementById("message").value.trim();
       if (!name || !email || !msg) { alert("Fyll i namn, e-post och meddelande."); return; }
-      alert("Tack! Skickat. För riktig bokning: använd Calendly-länken, ring, SMS eller mail.");
+      alert("Tack! Skickat (demo). För riktig bokning: använd bokningslänken, ring, SMS eller mail.");
       form.reset();
     });
   }
@@ -714,6 +866,13 @@
   "priceRange": "330–2750 SEK",
   "areaServed": [{"@type":"City","name":"Lund"}],
   "address": {"@type":"PostalAddress","addressLocality":"Lund","addressCountry":"SE"},
+  "makesOffer": [
+    { "@type": "Offer", "name": "Enstaka rastning 30 min", "price": "330", "priceCurrency": "SEK" },
+    { "@type": "Offer", "name": "Enstaka rastning 60 min", "price": "440", "priceCurrency": "SEK" },
+    { "@type": "Offer", "name": "Månadsabonnemang 30 min (1 dag/vecka)", "price": "1100", "priceCurrency": "SEK" },
+    { "@type": "Offer", "name": "Månadsabonnemang 30 min (2 dagar/vecka)", "price": "2200", "priceCurrency": "SEK" },
+    { "@type": "Offer", "name": "Månadsabonnemang 30 min (3 dagar/vecka)", "price": "2750", "priceCurrency": "SEK" }
+  ],
   "potentialAction": {
     "@type": "ReserveAction",
     "target": "https://example.com/boka",
@@ -722,6 +881,14 @@
 }
 </script>
 
-
-</body></html>
-
+<!--
+KRAV FÖR ATT BILDERNA SKA FUNKA:
+- Repo-root ska ha: index.html
+- En mapp som heter: assets
+- I assets måste filerna finnas exakt:
+  - ax_walk_1.jpg
+  - ax_walk_2.jpg
+  - ax_walk_3.jpg
+-->
+</body>
+</html>
